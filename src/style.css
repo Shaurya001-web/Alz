@@ -435,6 +435,13 @@ body {
   z-index: 2;
 }
 
+#section-ingest .alvi-heading {
+  max-width: 560px;
+}
+#section-ingest .alvi-body {
+  max-width: 480px;
+}
+
 /* --- Fabric Legend (from reference photo) --- */
 .fabric-legend {
   display: flex;
