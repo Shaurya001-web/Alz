@@ -99,55 +99,41 @@ function buildHTML() {
       </section>
 
       <!-- ======================== TRANSITION: WHITE → BLUE ======================== -->
-      <div class="panel-wrap" id="transition-1" style="height:200vh; position:relative;">
+      <div class="panel-wrap" id="transition-1" style="height:140vh; position:relative;">
         <div class="panel theme-light" id="panel-light-1" style="position:absolute; inset:0; z-index:1;"></div>
         <div class="panel theme-blue" id="panel-blue-enter" style="position:absolute; top:0; right:0; bottom:0; width:0; z-index:2;"></div>
       </div>
 
-      <!-- ======================== 02 VOICE ======================== -->
-      <section class="alvi-section theme-blue" id="section-voice" data-theme="blue">
+      <!-- ======================== 02 VOICE (FABRIC) ======================== -->
+      <section class="alvi-section theme-light" id="section-voice" data-theme="light">
         <div class="section-bg-num" aria-hidden="true">02</div>
-        <div class="section-label">02 VOICE</div>
-        <h2 class="alvi-heading">Every voice carries patterns.</h2>
-        <p class="alvi-body">Words communicate meaning. The way they are spoken can also produce measurable patterns — including rhythm, pauses, pitch, tempo and articulation.</p>
 
-        <div class="voice-chain">
-          <div class="chain-item">VOICE</div>
-          <div class="chain-arrow">↓</div>
-          <div class="chain-item">PITCH</div>
-          <div class="chain-arrow">↓</div>
-          <div class="chain-item">TEMPO</div>
-          <div class="chain-arrow">↓</div>
-          <div class="chain-item">PAUSES</div>
-          <div class="chain-arrow">↓</div>
-          <div class="chain-item">RHYTHM</div>
-          <div class="chain-arrow">↓</div>
-          <div class="chain-item" style="opacity:0.6;">PATTERN</div>
+        <!-- Mini Section Tabs (matches reference photo) -->
+        <div class="section-sub-tabs">
+          <span class="sub-tab-lead">VOICE SIGNALS</span>
+          <span class="sub-tab-line">—</span>
+          <span class="sub-tab active">FABRIC</span>
+          <span class="sub-tab">ACOUSTIC</span>
+          <span class="sub-tab">TEMPO</span>
+          <span class="sub-tab">HARMONICS</span>
         </div>
 
-        <!-- Voice Visualization -->
-        <div class="voice-viz" id="voice-viz">
-          <canvas id="voice-viz-canvas"></canvas>
-          <div class="voice-viz-label">SIMULATED VOICE SIGNAL</div>
-        </div>
+        <div class="section-sub-num">2.1</div>
+        <h2 class="alvi-heading">The human-voice fabric.</h2>
+        <p class="alvi-body">Acoustic markers are fast. Cognitive patterns are deep. ALVI fuses them on one live, structured fabric, so researchers work from the same clarity.</p>
 
-        <!-- Voice Metrics -->
-        <div class="metrics-row">
-          ${Object.values(voiceMetrics)
-            .map(
-              m => `<div class="metric-item">
-              <div class="metric-label">${m.label}</div>
-              <div class="metric-value">${m.value}</div>
-            </div>`
-            )
-            .join('')}
+        <!-- Fabric Legend (matches reference photo) -->
+        <div class="fabric-legend">
+          <div class="legend-item"><span class="legend-dot circle-black"></span> YOUR SIGNALS</div>
+          <div class="legend-item"><span class="legend-dot square-blue"></span> AGENT MARKER</div>
+          <div class="legend-item"><span class="legend-dot diamond-blue"></span> COGNITIVE SKILL</div>
+          <div class="legend-item"><span class="legend-line"></span> CONTEXT</div>
         </div>
-        <div class="metric-data-label" style="margin-top:20px;">SIMULATED DATA</div>
       </section>
 
       <!-- ======================== TRANSITION: BLUE → DARK ======================== -->
-      <div class="panel-wrap" id="transition-2" style="height:200vh; position:relative;">
-        <div class="panel theme-blue" id="panel-blue-1" style="position:absolute; inset:0; z-index:1;"></div>
+      <div class="panel-wrap" id="transition-2" style="height:140vh; position:relative;">
+        <div class="panel theme-light" id="panel-light-2" style="position:absolute; inset:0; z-index:1;"></div>
         <div class="panel theme-dark" id="panel-dark-enter" style="position:absolute; top:0; right:0; bottom:0; width:0; z-index:2;"></div>
       </div>
 
@@ -157,42 +143,6 @@ function buildHTML() {
         <div class="section-label">03 COGNITION</div>
         <h2 class="alvi-heading">Cognition is not a single number.</h2>
         <p class="alvi-body">Memory, language, attention and recall do not exist independently. They interact continuously. ALVI presents these signals as connected parts of a larger cognitive picture.</p>
-
-        <!-- Cognitive Network SVG -->
-        <div class="cog-network" id="cog-network">
-          <svg viewBox="0 0 560 320" xmlns="http://www.w3.org/2000/svg">
-            <!-- Connections -->
-            <line x1="280" y1="160" x2="120" y2="80" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/>
-            <line x1="280" y1="160" x2="440" y2="80" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/>
-            <line x1="280" y1="160" x2="120" y2="240" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/>
-            <line x1="280" y1="160" x2="440" y2="240" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/>
-            <line x1="280" y1="160" x2="200" y2="160" stroke="rgba(255,255,255,0.08)" stroke-width="0.5"/>
-            <line x1="280" y1="160" x2="360" y2="160" stroke="rgba(255,255,255,0.08)" stroke-width="0.5"/>
-            <line x1="120" y1="80" x2="440" y2="80" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/>
-            <line x1="120" y1="240" x2="440" y2="240" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/>
-            <line x1="120" y1="80" x2="120" y2="240" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/>
-            <line x1="440" y1="80" x2="440" y2="240" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/>
-            <line x1="200" y1="160" x2="120" y2="80" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>
-            <line x1="360" y1="160" x2="440" y2="240" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>
-            <!-- Center Node -->
-            <rect x="272" y="152" width="16" height="16" fill="rgba(90,140,230,0.5)" class="cog-node-center"/>
-            <text x="280" y="145" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-family="'IBM Plex Mono', monospace" font-size="7" font-weight="500" letter-spacing="1.5">COGNITIVE PROFILE</text>
-            <!-- Outer Nodes -->
-            <circle cx="120" cy="80" r="5" fill="rgba(255,255,255,0.2)"/>
-            <text x="120" y="68" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-family="'IBM Plex Mono', monospace" font-size="7" font-weight="500" letter-spacing="1.5">MEMORY</text>
-            <circle cx="440" cy="80" r="5" fill="rgba(255,255,255,0.2)"/>
-            <text x="440" y="68" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-family="'IBM Plex Mono', monospace" font-size="7" font-weight="500" letter-spacing="1.5">LANGUAGE</text>
-            <circle cx="120" cy="240" r="5" fill="rgba(255,255,255,0.2)"/>
-            <text x="120" y="260" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-family="'IBM Plex Mono', monospace" font-size="7" font-weight="500" letter-spacing="1.5">ATTENTION</text>
-            <circle cx="440" cy="240" r="5" fill="rgba(255,255,255,0.2)"/>
-            <text x="440" y="260" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-family="'IBM Plex Mono', monospace" font-size="7" font-weight="500" letter-spacing="1.5">RECALL</text>
-            <!-- Intermediate Nodes -->
-            <rect x="196" y="156" width="8" height="8" transform="rotate(45 200 160)" fill="rgba(255,255,255,0.15)"/>
-            <text x="200" y="178" text-anchor="middle" fill="rgba(255,255,255,0.25)" font-family="'IBM Plex Mono', monospace" font-size="7" font-weight="500" letter-spacing="1.5">PROCESSING</text>
-            <rect x="356" y="156" width="8" height="8" transform="rotate(45 360 160)" fill="rgba(90,140,230,0.4)"/>
-            <text x="360" y="178" text-anchor="middle" fill="rgba(255,255,255,0.25)" font-family="'IBM Plex Mono', monospace" font-size="7" font-weight="500" letter-spacing="1.5">PATTERN</text>
-          </svg>
-        </div>
 
         <!-- Cognitive Metrics -->
         <div class="metrics-row">
@@ -209,7 +159,7 @@ function buildHTML() {
       </section>
 
       <!-- ======================== TRANSITION: DARK → WHITE ======================== -->
-      <div class="panel-wrap" id="transition-3" style="height:200vh; position:relative;">
+      <div class="panel-wrap" id="transition-3" style="height:140vh; position:relative;">
         <div class="panel theme-dark" id="panel-dark-1" style="position:absolute; inset:0; z-index:1;"></div>
         <div class="panel theme-light" id="panel-light-enter" style="position:absolute; top:0; right:0; bottom:0; width:0; z-index:2;"></div>
       </div>
@@ -220,52 +170,6 @@ function buildHTML() {
         <div class="section-label">04 INSIGHT</div>
         <h2 class="alvi-heading">Many signals. One clearer picture.</h2>
         <p class="alvi-body">ALVI conceptually brings voice and cognitive signals together so complex patterns can be presented in a way that is easier to understand and investigate.</p>
-
-        <!-- Insight Convergence Diagram -->
-        <div class="insight-convergence" id="insight-convergence">
-          <svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" id="insight-svg">
-            <!-- Left: Voice signals -->
-            <text x="60" y="30" fill="rgba(0,0,0,0.3)" font-family="'IBM Plex Mono', monospace" font-size="8" font-weight="500" letter-spacing="2">VOICE</text>
-            <circle cx="80" cy="80" r="4" fill="rgba(0,0,0,0.12)"/>
-            <text x="80" y="100" text-anchor="middle" fill="rgba(0,0,0,0.25)" font-family="'IBM Plex Mono', monospace" font-size="7" letter-spacing="1.5">PITCH</text>
-            <circle cx="80" cy="150" r="4" fill="rgba(0,0,0,0.12)"/>
-            <text x="80" y="170" text-anchor="middle" fill="rgba(0,0,0,0.25)" font-family="'IBM Plex Mono', monospace" font-size="7" letter-spacing="1.5">TEMPO</text>
-            <circle cx="80" cy="220" r="4" fill="rgba(0,0,0,0.12)"/>
-            <text x="80" y="240" text-anchor="middle" fill="rgba(0,0,0,0.25)" font-family="'IBM Plex Mono', monospace" font-size="7" letter-spacing="1.5">PAUSE</text>
-            <circle cx="80" cy="290" r="4" fill="rgba(0,0,0,0.12)"/>
-            <text x="80" y="310" text-anchor="middle" fill="rgba(0,0,0,0.25)" font-family="'IBM Plex Mono', monospace" font-size="7" letter-spacing="1.5">RHYTHM</text>
-
-            <!-- Right: Cognition signals -->
-            <text x="680" y="30" fill="rgba(0,0,0,0.3)" font-family="'IBM Plex Mono', monospace" font-size="8" font-weight="500" letter-spacing="2">COGNITION</text>
-            <circle cx="720" cy="80" r="4" fill="rgba(0,0,0,0.12)"/>
-            <text x="720" y="100" text-anchor="middle" fill="rgba(0,0,0,0.25)" font-family="'IBM Plex Mono', monospace" font-size="7" letter-spacing="1.5">MEMORY</text>
-            <circle cx="720" cy="150" r="4" fill="rgba(0,0,0,0.12)"/>
-            <text x="720" y="170" text-anchor="middle" fill="rgba(0,0,0,0.25)" font-family="'IBM Plex Mono', monospace" font-size="7" letter-spacing="1.5">LANGUAGE</text>
-            <circle cx="720" cy="220" r="4" fill="rgba(0,0,0,0.12)"/>
-            <text x="720" y="240" text-anchor="middle" fill="rgba(0,0,0,0.25)" font-family="'IBM Plex Mono', monospace" font-size="7" letter-spacing="1.5">ATTENTION</text>
-            <circle cx="720" cy="290" r="4" fill="rgba(0,0,0,0.12)"/>
-            <text x="720" y="310" text-anchor="middle" fill="rgba(0,0,0,0.25)" font-family="'IBM Plex Mono', monospace" font-size="7" letter-spacing="1.5">RECALL</text>
-
-            <!-- Convergence lines (animated via class) -->
-            <line class="conv-line conv-l1" x1="84" y1="80" x2="392" y2="185" stroke="rgba(60,100,200,0.15)" stroke-width="0.5"/>
-            <line class="conv-line conv-l2" x1="84" y1="150" x2="392" y2="190" stroke="rgba(60,100,200,0.15)" stroke-width="0.5"/>
-            <line class="conv-line conv-l3" x1="84" y1="220" x2="392" y2="195" stroke="rgba(60,100,200,0.15)" stroke-width="0.5"/>
-            <line class="conv-line conv-l4" x1="84" y1="290" x2="392" y2="200" stroke="rgba(60,100,200,0.15)" stroke-width="0.5"/>
-            <line class="conv-line conv-r1" x1="716" y1="80" x2="408" y2="185" stroke="rgba(60,100,200,0.15)" stroke-width="0.5"/>
-            <line class="conv-line conv-r2" x1="716" y1="150" x2="408" y2="190" stroke="rgba(60,100,200,0.15)" stroke-width="0.5"/>
-            <line class="conv-line conv-r3" x1="716" y1="220" x2="408" y2="195" stroke="rgba(60,100,200,0.15)" stroke-width="0.5"/>
-            <line class="conv-line conv-r4" x1="716" y1="290" x2="408" y2="200" stroke="rgba(60,100,200,0.15)" stroke-width="0.5"/>
-
-            <!-- Center: ALVI -->
-            <rect x="388" y="178" width="24" height="24" fill="rgba(60,100,200,0.35)"/>
-            <text x="400" y="168" text-anchor="middle" fill="rgba(0,0,0,0.45)" font-family="'Hanken Grotesk', sans-serif" font-size="12" font-weight="600" letter-spacing="3">ALVI</text>
-
-            <!-- Bottom: Cognitive Insight -->
-            <line x1="400" y1="202" x2="400" y2="350" stroke="rgba(60,100,200,0.12)" stroke-width="0.5"/>
-            <rect x="393" y="347" width="14" height="14" transform="rotate(45 400 354)" fill="rgba(60,100,200,0.25)"/>
-            <text x="400" y="385" text-anchor="middle" fill="rgba(0,0,0,0.3)" font-family="'IBM Plex Mono', monospace" font-size="8" font-weight="500" letter-spacing="2">COGNITIVE INSIGHT</text>
-          </svg>
-        </div>
 
         <!-- ALVI Cognitive Result -->
         <div class="result-scene" style="border-top-color: rgba(0,0,0,0.06);">
@@ -295,8 +199,8 @@ function buildHTML() {
       </section>
 
       <!-- ======================== TRANSITION: WHITE → BLUE ======================== -->
-      <div class="panel-wrap" id="transition-4" style="height:200vh; position:relative;">
-        <div class="panel theme-light" id="panel-light-2" style="position:absolute; inset:0; z-index:1;"></div>
+      <div class="panel-wrap" id="transition-4" style="height:140vh; position:relative;">
+        <div class="panel theme-light" id="panel-light-3" style="position:absolute; inset:0; z-index:1;"></div>
         <div class="panel theme-blue" id="panel-blue-enter-2" style="position:absolute; top:0; right:0; bottom:0; width:0; z-index:2;"></div>
       </div>
 
@@ -323,7 +227,7 @@ function buildHTML() {
       </section>
 
       <!-- ======================== TRANSITION: BLUE → DARK ======================== -->
-      <div class="panel-wrap" id="transition-5" style="height:200vh; position:relative;">
+      <div class="panel-wrap" id="transition-5" style="height:140vh; position:relative;">
         <div class="panel theme-blue" id="panel-blue-2" style="position:absolute; inset:0; z-index:1;"></div>
         <div class="panel theme-dark" id="panel-dark-enter-2" style="position:absolute; top:0; right:0; bottom:0; width:0; z-index:2;"></div>
       </div>
@@ -365,98 +269,19 @@ function init() {
   const app = document.getElementById('app');
   app.innerHTML = buildHTML();
 
-  // --- Graph ---
+  // --- Multi-scene Graph ---
   const graphCanvas = document.getElementById('graph-canvas');
   const graph = new AnimatedGraph(graphCanvas);
   graph.start();
 
-  // --- Voice Visualization (static waveform) ---
-  drawVoiceVisualization();
-
   // --- Menu ---
   initMenu();
 
-  // --- Section Navigation ---
+  // --- Section Navigation & Smooth Scroll Morphing ---
   initSectionNav(graph);
 
   // --- GSAP Scroll Animations ---
   initScrollAnimations(graph);
-
-  // --- Convergence animation ---
-  initConvergenceAnimation();
-}
-
-// ============================================================
-// Voice Visualization — Simulated Waveform
-// ============================================================
-function drawVoiceVisualization() {
-  const canvas = document.getElementById('voice-viz-canvas');
-  if (!canvas) return;
-  const dpr = window.devicePixelRatio || 1;
-  const rect = canvas.parentElement.getBoundingClientRect();
-  const w = rect.width || 600;
-  const h = 180;
-  canvas.width = w * dpr;
-  canvas.height = h * dpr;
-  canvas.style.width = w + 'px';
-  canvas.style.height = h + 'px';
-  const ctx = canvas.getContext('2d');
-  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-
-  // Axis lines
-  ctx.strokeStyle = 'rgba(255,255,255,0.08)';
-  ctx.lineWidth = 0.5;
-  for (let y = 20; y < h; y += 40) {
-    ctx.beginPath();
-    ctx.moveTo(0, y);
-    ctx.lineTo(w, y);
-    ctx.stroke();
-  }
-
-  // Waveform
-  ctx.beginPath();
-  ctx.strokeStyle = 'rgba(140,180,255,0.4)';
-  ctx.lineWidth = 1;
-  const mid = h / 2;
-  for (let x = 0; x < w; x++) {
-    const t = x / w;
-    const y =
-      mid +
-      Math.sin(t * 24) * 18 * Math.sin(t * Math.PI) +
-      Math.sin(t * 67) * 8 * Math.cos(t * 3) +
-      Math.sin(t * 120) * 4 +
-      Math.sin(t * 200) * 2;
-    if (x === 0) ctx.moveTo(x, y);
-    else ctx.lineTo(x, y);
-  }
-  ctx.stroke();
-
-  // Sample points
-  ctx.fillStyle = 'rgba(90,140,230,0.5)';
-  for (let x = 0; x < w; x += 12) {
-    const t = x / w;
-    const y =
-      mid +
-      Math.sin(t * 24) * 18 * Math.sin(t * Math.PI) +
-      Math.sin(t * 67) * 8 * Math.cos(t * 3) +
-      Math.sin(t * 120) * 4 +
-      Math.sin(t * 200) * 2;
-    ctx.beginPath();
-    ctx.arc(x, y, 1.5, 0, Math.PI * 2);
-    ctx.fill();
-  }
-
-  // Frequency curve (subtle)
-  ctx.beginPath();
-  ctx.strokeStyle = 'rgba(255,255,255,0.06)';
-  ctx.lineWidth = 0.5;
-  for (let x = 0; x < w; x++) {
-    const t = x / w;
-    const y = h - 30 + Math.sin(t * 8) * 12 + Math.sin(t * 20) * 5;
-    if (x === 0) ctx.moveTo(x, y);
-    else ctx.lineTo(x, y);
-  }
-  ctx.stroke();
 }
 
 // ============================================================
@@ -504,7 +329,7 @@ function initMenu() {
 }
 
 // ============================================================
-// Section Navigation
+// Section Navigation & Scroll Progress Tracking
 // ============================================================
 function initSectionNav(graph) {
   const navLinks = document.querySelectorAll('.section-nav a');
@@ -523,21 +348,62 @@ function initSectionNav(graph) {
     });
   });
 
-  // Update active state on scroll
-  const sectionEls = sections.map(s => document.getElementById('section-' + s.id));
+  // Content chapter checkpoints for smooth scene morphing
+  const chapterSections = [
+    document.getElementById('section-hero'),
+    document.getElementById('section-voice'),
+    document.getElementById('section-cognition'),
+    document.getElementById('section-insight'),
+    document.getElementById('section-responsibility'),
+    document.getElementById('section-future'),
+  ];
 
   ScrollTrigger.create({
     trigger: document.body,
     start: 'top top',
     end: 'bottom bottom',
     onUpdate: self => {
-      const scrollY = window.scrollY + window.innerHeight / 2;
-      let activeId = sections[0].id;
+      const scrollY = window.scrollY;
+      const vh = window.innerHeight;
+      const focalScrollY = scrollY + vh * 0.4;
+
+      // Calculate continuous scene index float (0.0 to 5.0)
+      let continuousScene = 0;
+      for (let i = 0; i < chapterSections.length - 1; i++) {
+        const cur = chapterSections[i];
+        const next = chapterSections[i + 1];
+        if (cur && next) {
+          const topA = cur.offsetTop;
+          const topB = next.offsetTop;
+          if (scrollY >= topA && scrollY < topB) {
+            const frac = Math.max(0, Math.min(1, (scrollY - topA) / (topB - topA)));
+            continuousScene = i + frac;
+            break;
+          } else if (scrollY >= topB && i === chapterSections.length - 2) {
+            continuousScene = i + 1;
+          }
+        }
+      }
+
+      // Update graph scene progress (drives collapse and boom!)
+      graph.setSceneProgress(continuousScene);
+
+      // Determine active section for nav and colors
+      let activeId = 'signals';
       let activeTheme = 'light';
 
-      sectionEls.forEach((el, i) => {
-        if (el && el.offsetTop <= scrollY) {
-          activeId = sections[i].id;
+      const navSections = [
+        document.getElementById('section-signals'),
+        document.getElementById('section-voice'),
+        document.getElementById('section-cognition'),
+        document.getElementById('section-insight'),
+        document.getElementById('section-responsibility'),
+        document.getElementById('section-future'),
+      ];
+
+      navSections.forEach((el, i) => {
+        if (el && el.offsetTop <= focalScrollY) {
+          activeId = sections[i] ? sections[i].id : 'signals';
           activeTheme = el.getAttribute('data-theme') || 'light';
         }
       });
@@ -560,10 +426,6 @@ function initSectionNav(graph) {
       navLinks.forEach(link => {
         link.style.color = isDark ? '#e8e6e2' : '#1a1a1a';
       });
-
-      // Graph scroll
-      const totalHeight = document.body.scrollHeight - window.innerHeight;
-      graph.setScroll(totalHeight > 0 ? window.scrollY / totalHeight : 0);
     },
   });
 }
@@ -612,6 +474,9 @@ function initScrollAnimations(graph) {
     const heading = section.querySelector('.alvi-heading');
     const body = section.querySelector('.alvi-body');
     const label = section.querySelector('.section-label');
+    const subTabs = section.querySelector('.section-sub-tabs');
+    const subNum = section.querySelector('.section-sub-num');
+    const legend = section.querySelector('.fabric-legend');
     const bgNum = section.querySelector('.section-bg-num');
     const micros = section.querySelector('.micro-labels');
 
@@ -627,6 +492,12 @@ function initScrollAnimations(graph) {
     if (bgNum) {
       tl.fromTo(bgNum, { x: -40, opacity: 0 }, { x: 0, opacity: 0.04, duration: 1.2, ease: 'power2.out' }, 0);
     }
+    if (subTabs) {
+      tl.fromTo(subTabs, { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' }, 0.05);
+    }
+    if (subNum) {
+      tl.fromTo(subNum, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' }, 0.1);
+    }
     if (label) {
       tl.fromTo(label, { opacity: 0, y: 15 }, { opacity: 0.5, y: 0, duration: 0.6, ease: 'power2.out' }, 0.1);
     }
@@ -636,21 +507,19 @@ function initScrollAnimations(graph) {
     if (body) {
       tl.fromTo(body, { opacity: 0, y: 30 }, { opacity: 0.65, y: 0, duration: 0.8, ease: 'power2.out' }, 0.3);
     }
+    if (legend) {
+      tl.fromTo(legend, { opacity: 0, y: 20 }, { opacity: 0.55, y: 0, duration: 0.6, ease: 'power2.out' }, 0.4);
+    }
     if (micros) {
       tl.fromTo(micros, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' }, 0.45);
     }
   });
 
   // --- Panel Transitions ---
-  // Transition 1: White → Blue
   createPanelTransition('#transition-1', '#panel-blue-enter');
-  // Transition 2: Blue → Dark
   createPanelTransition('#transition-2', '#panel-dark-enter');
-  // Transition 3: Dark → White
   createPanelTransition('#transition-3', '#panel-light-enter');
-  // Transition 4: White → Blue
   createPanelTransition('#transition-4', '#panel-blue-enter-2');
-  // Transition 5: Blue → Dark
   createPanelTransition('#transition-5', '#panel-dark-enter-2');
 
   // --- Background number parallax ---
@@ -720,20 +589,6 @@ function initScrollAnimations(graph) {
     },
   });
 
-  // --- Voice chain items stagger ---
-  gsap.from('.chain-item, .chain-arrow', {
-    opacity: 0,
-    y: 15,
-    stagger: 0.08,
-    duration: 0.5,
-    ease: 'power2.out',
-    scrollTrigger: {
-      trigger: '.voice-chain',
-      start: 'top 80%',
-      toggleActions: 'play none none reverse',
-    },
-  });
-
   // --- Metrics rows ---
   document.querySelectorAll('.metrics-row').forEach(row => {
     gsap.from(row.querySelectorAll('.metric-item'), {
@@ -769,36 +624,6 @@ function createPanelTransition(wrapSelector, panelSelector) {
       scrub: true,
       pin: true,
       pinSpacing: false,
-    },
-  });
-}
-
-// ============================================================
-// Convergence Diagram Animation
-// ============================================================
-function initConvergenceAnimation() {
-  const svg = document.getElementById('insight-svg');
-  if (!svg) return;
-
-  const lines = svg.querySelectorAll('.conv-line');
-  lines.forEach(line => {
-    const length = Math.sqrt(
-      Math.pow(parseFloat(line.getAttribute('x2')) - parseFloat(line.getAttribute('x1')), 2) +
-      Math.pow(parseFloat(line.getAttribute('y2')) - parseFloat(line.getAttribute('y1')), 2)
-    );
-    line.setAttribute('stroke-dasharray', length);
-    line.setAttribute('stroke-dashoffset', length);
-  });
-
-  gsap.to(lines, {
-    strokeDashoffset: 0,
-    stagger: 0.08,
-    duration: 1.2,
-    ease: 'power2.inOut',
-    scrollTrigger: {
-      trigger: '#insight-convergence',
-      start: 'top 70%',
-      toggleActions: 'play none none reverse',
     },
   });
 }

@@ -387,6 +387,101 @@ body {
   transition: opacity 0.3s;
 }
 
+/* --- Section Sub Tabs (from reference) --- */
+.section-sub-tabs {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 28px;
+  position: relative;
+  z-index: 2;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.sub-tab-lead {
+  opacity: 0.35;
+}
+.sub-tab-line {
+  opacity: 0.2;
+}
+.sub-tab {
+  opacity: 0.35;
+  cursor: pointer;
+  transition: opacity 0.3s, color 0.3s;
+}
+.sub-tab:hover {
+  opacity: 0.7;
+}
+.sub-tab.active {
+  opacity: 0.9;
+  color: var(--accent);
+  border-bottom: 1.5px solid var(--accent);
+  padding-bottom: 2px;
+}
+
+/* --- Section Sub Number (e.g. 2.1 in photo) --- */
+.section-sub-num {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  color: var(--accent);
+  margin-bottom: 14px;
+  position: relative;
+  z-index: 2;
+}
+
+/* --- Fabric Legend (from reference photo) --- */
+.fabric-legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 28px;
+  margin-top: 56px;
+  position: relative;
+  z-index: 2;
+  font-family: var(--font-mono);
+  font-size: 8.5px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  opacity: 0.55;
+}
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.legend-dot {
+  display: inline-block;
+}
+.legend-dot.circle-black {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: currentColor;
+}
+.legend-dot.square-blue {
+  width: 7px;
+  height: 7px;
+  background: #4a7cdb;
+}
+.legend-dot.diamond-blue {
+  width: 6px;
+  height: 6px;
+  border: 1px solid #4a7cdb;
+  transform: rotate(45deg);
+}
+.legend-line {
+  display: inline-block;
+  width: 14px;
+  height: 1px;
+  background: #4a7cdb;
+}
+
 /* ============================================================
    THEME VARIANTS
    Sections are transparent so the persistent graph canvas
