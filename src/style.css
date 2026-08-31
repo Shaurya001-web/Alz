@@ -19,11 +19,11 @@
   --warm-white-text: #1a1a1a;
   --warm-white-subtle: #8a8580;
 
-  --blue: #1a2744;
-  --blue-light: #243460;
+  --blue: #1d3da8;
+  --blue-light: #2548bd;
   --blue-text: #ffffff;
-  --blue-subtle: rgba(255,255,255,0.45);
-  --blue-accent: #5b8def;
+  --blue-subtle: rgba(255,255,255,0.65);
+  --blue-accent: #78a6ff;
 
   --dark: #0c0e14;
   --dark-text: #e8e6e2;
@@ -50,6 +50,7 @@ body {
   color: var(--warm-white-text);
   overflow-x: hidden;
   line-height: 1.5;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 /* --- Graph Canvas --- */

@@ -468,14 +468,26 @@ function initSectionNav(graph) {
       // Update graph theme
       graph.setTheme(activeTheme);
 
+      // Update body theme background
+      if (activeTheme === 'blue') {
+        document.body.style.backgroundColor = '#1d3da8';
+        document.body.style.color = '#ffffff';
+      } else if (activeTheme === 'dark') {
+        document.body.style.backgroundColor = '#0c0e14';
+        document.body.style.color = '#e8e6e2';
+      } else {
+        document.body.style.backgroundColor = '#f5f2ed';
+        document.body.style.color = '#1a1a1a';
+      }
+
       // Update header/nav/indicator colors
       const isDark = activeTheme === 'dark' || activeTheme === 'blue';
-      header.style.color = isDark ? '#e8e6e2' : '#1a1a1a';
-      simIndicator.style.color = isDark ? 'rgba(255,255,255,0.5)' : 'rgba(0,0,0,0.5)';
+      header.style.color = isDark ? '#ffffff' : '#1a1a1a';
+      simIndicator.style.color = isDark ? 'rgba(255,255,255,0.65)' : 'rgba(0,0,0,0.5)';
 
       // Section nav colors
       navLinks.forEach(link => {
-        link.style.color = isDark ? '#e8e6e2' : '#1a1a1a';
+        link.style.color = isDark ? '#ffffff' : '#1a1a1a';
       });
     },
   });

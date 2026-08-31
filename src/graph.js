@@ -193,17 +193,17 @@ export class AnimatedGraph {
     switch (this.theme) {
       case 'blue':
         return {
-          bg: '#1a2744',
+          bg: '#1d3da8',
           line: 'rgba(255,255,255,0.22)',
-          lineHighlight: 'rgba(255,255,255,0.6)',
+          lineHighlight: 'rgba(255,255,255,0.7)',
           pulseColor: 'rgba(255,255,255,0.95)',
-          node: 'rgba(255,255,255,0.4)',
-          nodeAccent: '#5b8def',
-          badgeBg: '#1a2744',
+          node: 'rgba(255,255,255,0.5)',
+          nodeAccent: '#78a6ff',
+          badgeBg: '#1d3da8',
           badgeStroke: '#ffffff',
           badgeIcon: '#ffffff',
-          label: 'rgba(255,255,255,0.85)',
-          sublabel: 'rgba(255,255,255,0.45)',
+          label: 'rgba(255,255,255,0.9)',
+          sublabel: 'rgba(255,255,255,0.5)',
           watermark: 'rgba(255,255,255,0.06)',
         };
       case 'dark':
