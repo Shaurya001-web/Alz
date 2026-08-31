@@ -9,12 +9,8 @@ import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 import { AnimatedGraph } from './graph.js';
 import {
   sections,
-  topNav,
-  metrics,
-  voiceMetrics,
-  cognitiveMetrics,
   responsibilityPrinciples,
-  menuItems,
+  cognitiveMetrics,
 } from './data.js';
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
@@ -29,16 +25,12 @@ function buildHTML() {
       <canvas id="graph-canvas"></canvas>
     </div>
 
-    <!-- Header -->
+    <!-- Header (Clean Logo only on top left) -->
     <header class="alvi-header" id="alvi-header">
       <a class="alvi-header-logo" href="#" aria-label="ALVI Home">
         ALVI
         <span>Alzheimer's Voice Intelligence</span>
       </a>
-      <nav class="tech-index" aria-label="Technical navigation">
-        ${topNav.map(item => `<a href="#" data-nav="${item.toLowerCase()}">${item}</a>`).join('')}
-      </nav>
-      <button class="menu-btn" id="menu-open" aria-label="Open menu">MENU</button>
     </header>
 
     <!-- Right Section Navigation -->
@@ -59,37 +51,14 @@ function buildHTML() {
       SIMULATED DATA
     </div>
 
-    <!-- Full Screen Menu -->
-    <div class="menu-overlay" id="menu-overlay" role="dialog" aria-label="Navigation menu">
-      <button class="menu-overlay-close" id="menu-close" aria-label="Close menu">CLOSE</button>
-      ${menuItems
-        .map(
-          m => `<a href="#section-${m.id}" class="menu-link" data-menu-target="${m.id}">
-            <span class="menu-num">${m.num}</span>
-            ${m.label}
-          </a>`
-        )
-        .join('')}
-    </div>
-
     <!-- Scroll Container -->
     <main class="scroll-container" id="scroll-container">
 
-      <!-- ======================== HERO ======================== -->
-      <section class="hero-section" id="section-hero">
-        <div class="hero-bg-num" aria-hidden="true">01</div>
-        <div class="hero-brand">ALVI</div>
-        <div class="hero-sub-brand">ALZHEIMER'S VOICE INTELLIGENCE</div>
+      <!-- ======================== 01 SIGNALS (HERO) ======================== -->
+      <section class="hero-section" id="section-hero" data-theme="light">
+        <div class="section-bg-num" aria-hidden="true">01</div>
         <h1 class="hero-heading">The signals<br/>we usually overlook.</h1>
         <p class="hero-body">ALVI explores how voice and cognitive signals could be organized into a clearer visual picture of cognitive health.</p>
-      </section>
-
-      <!-- ======================== 01 SIGNALS ======================== -->
-      <section class="alvi-section theme-light" id="section-signals" data-theme="light">
-        <div class="section-bg-num" aria-hidden="true">01</div>
-        <div class="section-label">01 SIGNALS</div>
-        <h2 class="alvi-heading">The signals we usually overlook.</h2>
-        <p class="alvi-body">Some changes in cognition can be subtle long before they become obvious. ALVI explores how patterns in speech and cognition could be organized into a clearer visual picture of cognitive health.</p>
         <div class="micro-labels">
           <span class="micro-label">VOICE</span>
           <span class="micro-label">COGNITION</span>
@@ -98,38 +67,11 @@ function buildHTML() {
         </div>
       </section>
 
-      <!-- ======================== 02.1 VOICE (FABRIC) ======================== -->
-      <section class="alvi-section theme-light" id="section-voice" data-theme="light">
-        <div class="section-bg-num" aria-hidden="true">02</div>
-
-        <!-- Mini Section Tabs (FABRIC active) -->
-        <div class="section-sub-tabs">
-          <span class="sub-tab-lead">VOICE SIGNALS</span>
-          <span class="sub-tab-line">—</span>
-          <span class="sub-tab active">FABRIC</span>
-          <span class="sub-tab">ACOUSTIC</span>
-          <span class="sub-tab">TEMPO</span>
-          <span class="sub-tab">HARMONICS</span>
-        </div>
-
-        <div class="section-sub-num">2.1</div>
-        <h2 class="alvi-heading">The human-voice fabric.</h2>
-        <p class="alvi-body">Acoustic markers are fast. Cognitive patterns are deep. ALVI fuses them on one live, structured fabric, so researchers work from the same clarity.</p>
-
-        <!-- Fabric Legend -->
-        <div class="fabric-legend">
-          <div class="legend-item"><span class="legend-dot circle-black"></span> YOUR SIGNALS</div>
-          <div class="legend-item"><span class="legend-dot square-blue"></span> AGENT MARKER</div>
-          <div class="legend-item"><span class="legend-dot diamond-blue"></span> COGNITIVE SKILL</div>
-          <div class="legend-item"><span class="legend-line"></span> CONTEXT</div>
-        </div>
-      </section>
-
-      <!-- ======================== 02.2 INGEST (NEURAL MODEL) ======================== -->
+      <!-- ======================== 02 INGEST / NEURAL NETWORK (EXACT MATCH TO BLUE SCREENSHOT) ======================== -->
       <section class="alvi-section theme-blue" id="section-ingest" data-theme="blue">
-        <div class="section-bg-num" aria-hidden="true" style="right:8vw; left:auto;">2</div>
+        <div class="section-bg-num" aria-hidden="true">2</div>
 
-        <!-- Mini Section Tabs (INGEST active) -->
+        <!-- Mini Section Tabs (matches Langware reference) -->
         <div class="section-sub-tabs">
           <span class="sub-tab-line">—</span>
           <span class="sub-tab">FABRIC</span>
@@ -143,13 +85,13 @@ function buildHTML() {
 
         <div class="section-sub-num">2.2</div>
         <h2 class="alvi-heading">Gather all your sources in one place.</h2>
-        <p class="alvi-body">ALVI gathers your acoustic signals, temporal cadences, pauses and pitch contours through one governed gate. Signal fidelity, privacy and baseline access are verified on the way in.</p>
+        <p class="alvi-body">ALVI gathers your acoustic signals, temporal cadences, pauses and pitch contours through one governed gate. Security, privacy and access are checked on the way in.</p>
 
-        <!-- Bottom Sources Arch Bar with Vector Icons & Dotted Curve -->
+        <!-- Bottom Sources Arch Bar with Icons & Curved Projection -->
         <div class="sources-arch-container">
           <svg class="sources-arch-svg" viewBox="0 0 520 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M 40 40 Q 260 -8 480 40" stroke="rgba(255,255,255,0.25)" stroke-width="1" stroke-dasharray="3 3"/>
-            <line x1="260" y1="12" x2="260" y2="4" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+            <path d="M 40 40 Q 260 -8 480 40" stroke="rgba(255,255,255,0.28)" stroke-width="1" stroke-dasharray="3 3"/>
+            <line x1="260" y1="12" x2="260" y2="4" stroke="rgba(255,255,255,0.45)" stroke-width="1"/>
           </svg>
           <div class="sources-arch-bar">
             <div class="source-item">
@@ -288,16 +230,11 @@ function buildHTML() {
         <h2 class="alvi-heading">Turning subtle signals into earlier awareness.</h2>
         <p class="alvi-body">ALVI explores a future where complex cognitive signals could become easier to visualize, communicate and investigate.</p>
         <div class="future-statement">Subtle signals.<br/>Clearer context.<br/>Earlier awareness.</div>
-        <div class="future-brand">ALVI</div>
-        <div class="future-brand-sub">ALZHEIMER'S VOICE INTELLIGENCE</div>
-        <div class="future-concept-label">SIMULATED PRODUCT CONCEPT</div>
       </section>
 
       <!-- ======================== FINAL SCREEN ======================== -->
       <section class="final-screen" id="section-final">
         <h2 class="final-heading">Subtle signals.<br/>Earlier awareness.</h2>
-        <div class="final-brand">ALVI</div>
-        <div class="final-brand-sub">ALZHEIMER'S VOICE INTELLIGENCE</div>
         <div class="final-concept">SIMULATED PRODUCT CONCEPT</div>
         <p class="final-thought">Technology can help us notice patterns.<br/>Understanding them still requires people.</p>
       </section>
@@ -318,63 +255,16 @@ function init() {
   const app = document.getElementById('app');
   app.innerHTML = buildHTML();
 
-  // --- Multi-scene Graph ---
+  // --- Fast Multi-scene Graph ---
   const graphCanvas = document.getElementById('graph-canvas');
   const graph = new AnimatedGraph(graphCanvas);
   graph.start();
-
-  // --- Menu ---
-  initMenu();
 
   // --- Section Navigation & Smooth Scroll Morphing ---
   initSectionNav(graph);
 
   // --- GSAP Scroll Animations ---
   initScrollAnimations(graph);
-}
-
-// ============================================================
-// Menu
-// ============================================================
-function initMenu() {
-  const overlay = document.getElementById('menu-overlay');
-  const openBtn = document.getElementById('menu-open');
-  const closeBtn = document.getElementById('menu-close');
-  const links = overlay.querySelectorAll('.menu-link');
-
-  openBtn.addEventListener('click', () => {
-    overlay.classList.add('open');
-    document.body.style.overflow = 'hidden';
-    closeBtn.focus();
-  });
-
-  closeBtn.addEventListener('click', () => {
-    overlay.classList.remove('open');
-    document.body.style.overflow = '';
-    openBtn.focus();
-  });
-
-  links.forEach(link => {
-    link.addEventListener('click', e => {
-      e.preventDefault();
-      overlay.classList.remove('open');
-      document.body.style.overflow = '';
-      const target = link.getAttribute('data-menu-target');
-      const el = document.getElementById('section-' + target);
-      if (el) {
-        gsap.to(window, { scrollTo: { y: el, offsetY: 0 }, duration: 1.2, ease: 'power3.inOut' });
-      }
-    });
-  });
-
-  // Close on Escape
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape' && overlay.classList.contains('open')) {
-      overlay.classList.remove('open');
-      document.body.style.overflow = '';
-      openBtn.focus();
-    }
-  });
 }
 
 // ============================================================
@@ -392,15 +282,14 @@ function initSectionNav(graph) {
       const target = link.getAttribute('href').substring(1);
       const el = document.getElementById(target);
       if (el) {
-        gsap.to(window, { scrollTo: { y: el, offsetY: 0 }, duration: 1.2, ease: 'power3.inOut' });
+        gsap.to(window, { scrollTo: { y: el, offsetY: 0 }, duration: 1.0, ease: 'power3.inOut' });
       }
     });
   });
 
-  // Content chapter checkpoints for smooth scene morphing (0.0 to 6.0)
+  // Chapter sections (0 to 5)
   const chapterSections = [
     document.getElementById('section-hero'),
-    document.getElementById('section-voice'),
     document.getElementById('section-ingest'),
     document.getElementById('section-cognition'),
     document.getElementById('section-insight'),
@@ -417,7 +306,7 @@ function initSectionNav(graph) {
       const vh = window.innerHeight;
       const focalScrollY = scrollY + vh * 0.4;
 
-      // Calculate continuous scene index float (0.0 to 6.0)
+      // Calculate continuous scene index float (0.0 to 5.0)
       let continuousScene = 0;
       for (let i = 0; i < chapterSections.length - 1; i++) {
         const cur = chapterSections[i];
@@ -435,31 +324,21 @@ function initSectionNav(graph) {
         }
       }
 
-      // Update graph scene progress (drives collapse, boom, and NN column formation)
+      // Update graph scene progress (drives fast collapse & boom NN formation)
       graph.setSceneProgress(continuousScene);
 
       // Determine active section for nav and colors
-      let activeId = 'signals';
+      let activeId = 'hero';
       let activeTheme = 'light';
 
-      const navSections = [
-        document.getElementById('section-signals'),
-        document.getElementById('section-voice'),
-        document.getElementById('section-ingest'),
-        document.getElementById('section-cognition'),
-        document.getElementById('section-insight'),
-        document.getElementById('section-responsibility'),
-        document.getElementById('section-future'),
-      ];
-
-      navSections.forEach((el, i) => {
+      chapterSections.forEach((el, i) => {
         if (el && el.offsetTop <= focalScrollY) {
-          activeId = sections[i] ? sections[i].id : 'signals';
+          activeId = sections[i] ? sections[i].id : 'hero';
           activeTheme = el.getAttribute('data-theme') || 'light';
         }
       });
 
-      // Update nav active classes
+      // Update nav
       navLinks.forEach(link => {
         const sid = link.getAttribute('data-section');
         link.classList.toggle('active', sid === activeId);
@@ -468,7 +347,7 @@ function initSectionNav(graph) {
       // Update graph theme
       graph.setTheme(activeTheme);
 
-      // Update body theme background
+      // Smooth body background transition
       if (activeTheme === 'blue') {
         document.body.style.backgroundColor = '#1d3da8';
         document.body.style.color = '#ffffff';
@@ -498,37 +377,23 @@ function initSectionNav(graph) {
 // ============================================================
 function initScrollAnimations(graph) {
   // --- Hero animations ---
-  gsap.from('.hero-brand', {
-    opacity: 0,
-    y: 20,
-    duration: 1,
-    delay: 0.3,
-    ease: 'power2.out',
-  });
-  gsap.from('.hero-sub-brand', {
-    opacity: 0,
-    y: 15,
-    duration: 0.8,
-    delay: 0.5,
-    ease: 'power2.out',
-  });
   gsap.from('.hero-heading', {
     opacity: 0,
-    y: 40,
-    duration: 1.2,
-    delay: 0.4,
+    y: 35,
+    duration: 1,
+    delay: 0.2,
     ease: 'power3.out',
   });
   gsap.from('.hero-body', {
     opacity: 0,
-    y: 25,
-    duration: 1,
-    delay: 0.7,
+    y: 20,
+    duration: 0.8,
+    delay: 0.4,
     ease: 'power2.out',
   });
 
   // --- Section entry animations ---
-  const sectionIds = ['signals', 'voice', 'ingest', 'cognition', 'insight', 'responsibility', 'future'];
+  const sectionIds = ['hero', 'ingest', 'cognition', 'insight', 'responsibility', 'future'];
 
   sectionIds.forEach(id => {
     const section = document.getElementById('section-' + id);
@@ -539,7 +404,6 @@ function initScrollAnimations(graph) {
     const label = section.querySelector('.section-label');
     const subTabs = section.querySelector('.section-sub-tabs');
     const subNum = section.querySelector('.section-sub-num');
-    const legend = section.querySelector('.fabric-legend');
     const archContainer = section.querySelector('.sources-arch-container');
     const bgNum = section.querySelector('.section-bg-num');
     const micros = section.querySelector('.micro-labels');
@@ -554,31 +418,28 @@ function initScrollAnimations(graph) {
     });
 
     if (bgNum) {
-      tl.fromTo(bgNum, { x: -40, opacity: 0 }, { x: 0, opacity: 0.04, duration: 1.2, ease: 'power2.out' }, 0);
+      tl.fromTo(bgNum, { x: 30, opacity: 0 }, { x: 0, opacity: 0.08, duration: 1, ease: 'power2.out' }, 0);
     }
     if (subTabs) {
-      tl.fromTo(subTabs, { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' }, 0.05);
+      tl.fromTo(subTabs, { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' }, 0.05);
     }
     if (subNum) {
-      tl.fromTo(subNum, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' }, 0.1);
+      tl.fromTo(subNum, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out' }, 0.1);
     }
     if (label) {
-      tl.fromTo(label, { opacity: 0, y: 15 }, { opacity: 0.5, y: 0, duration: 0.6, ease: 'power2.out' }, 0.1);
+      tl.fromTo(label, { opacity: 0, y: 15 }, { opacity: 0.5, y: 0, duration: 0.5, ease: 'power2.out' }, 0.1);
     }
     if (heading) {
-      tl.fromTo(heading, { opacity: 0, y: 50, clipPath: 'inset(0 0 100% 0)' }, { opacity: 1, y: 0, clipPath: 'inset(0 0 0% 0)', duration: 1, ease: 'power3.out' }, 0.15);
+      tl.fromTo(heading, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, 0.15);
     }
     if (body) {
-      tl.fromTo(body, { opacity: 0, y: 30 }, { opacity: 0.65, y: 0, duration: 0.8, ease: 'power2.out' }, 0.3);
-    }
-    if (legend) {
-      tl.fromTo(legend, { opacity: 0, y: 20 }, { opacity: 0.55, y: 0, duration: 0.6, ease: 'power2.out' }, 0.4);
+      tl.fromTo(body, { opacity: 0, y: 25 }, { opacity: 0.7, y: 0, duration: 0.7, ease: 'power2.out' }, 0.25);
     }
     if (archContainer) {
-      tl.fromTo(archContainer, { opacity: 0, y: 25 }, { opacity: 1, y: 0, duration: 0.7, ease: 'power2.out' }, 0.4);
+      tl.fromTo(archContainer, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' }, 0.35);
     }
     if (micros) {
-      tl.fromTo(micros, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' }, 0.45);
+      tl.fromTo(micros, { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' }, 0.35);
     }
   });
 
@@ -604,9 +465,9 @@ function initScrollAnimations(graph) {
   // --- Principle items stagger ---
   gsap.from('.principle-item', {
     opacity: 0,
-    y: 30,
-    stagger: 0.12,
-    duration: 0.7,
+    y: 25,
+    stagger: 0.1,
+    duration: 0.6,
     ease: 'power2.out',
     scrollTrigger: {
       trigger: '.principles-list',
@@ -618,8 +479,8 @@ function initScrollAnimations(graph) {
   // --- Result scene ---
   gsap.from('.result-scene', {
     opacity: 0,
-    y: 40,
-    duration: 0.8,
+    y: 35,
+    duration: 0.7,
     ease: 'power2.out',
     scrollTrigger: {
       trigger: '.result-scene',
@@ -631,8 +492,8 @@ function initScrollAnimations(graph) {
   // --- Future statement ---
   gsap.from('.future-statement', {
     opacity: 0,
-    y: 30,
-    duration: 1,
+    y: 25,
+    duration: 0.8,
     ease: 'power2.out',
     scrollTrigger: {
       trigger: '.future-statement',
@@ -644,9 +505,8 @@ function initScrollAnimations(graph) {
   // --- Final screen ---
   gsap.from('.final-heading', {
     opacity: 0,
-    y: 50,
-    clipPath: 'inset(0 0 100% 0)',
-    duration: 1.2,
+    y: 40,
+    duration: 1,
     ease: 'power3.out',
     scrollTrigger: {
       trigger: '.final-screen',
@@ -660,8 +520,8 @@ function initScrollAnimations(graph) {
     gsap.from(row.querySelectorAll('.metric-item'), {
       opacity: 0,
       y: 20,
-      stagger: 0.1,
-      duration: 0.6,
+      stagger: 0.08,
+      duration: 0.5,
       ease: 'power2.out',
       scrollTrigger: {
         trigger: row,

@@ -1,14 +1,12 @@
 // ============================================================
-// ALVI — Morphing Multi-Scene Network Graph with Collapse & Boom Transitions
-// and Neural Network (NN) Transmission Mode
+// ALVI — Fast Morphing Multi-Scene Network Graph
 // Matches Langware Reference:
 // - Scene 0: Wide open signals web
-// - Scene 1: Voice-Cognitive Fabric (Open constellation)
-// - Scene 2: Voice Ingest / Neural Network (3 columns on right + flowing data pulses)
-// - Scene 3: Cognitive Profile Constellation
-// - Scene 4: Dual-Stream Left/Right Convergence
-// - Scene 5: Responsibility Governance
-// - Scene 6: Future Astronomical Constellation
+// - Scene 1: Voice Ingest / Neural Network (3 columns on right + fast flowing data pulses)
+// - Scene 2: Cognitive Profile Constellation
+// - Scene 3: Dual-Stream Left/Right Convergence
+// - Scene 4: Responsibility Governance
+// - Scene 5: Future Astronomical Constellation
 // ============================================================
 import { multiSceneNodes, multiSceneConnections } from './data.js';
 
@@ -18,9 +16,9 @@ export class AnimatedGraph {
     this.ctx = canvas.getContext('2d');
     this.nodes = [];
     this.connections = [];
-    this.pulses = []; // Animated data packets flowing along neural lines
+    this.pulses = [];
     this.theme = 'light';
-    this.scrollProgress = 0; // 0.0 to 6.0 (continuous scene float)
+    this.scrollProgress = 0; // 0.0 to 5.0 (continuous scene float)
     this.time = 0;
     this.dpr = window.devicePixelRatio || 1;
     this.isMobile = window.innerWidth < 768;
@@ -44,8 +42,8 @@ export class AnimatedGraph {
       curScale: 1.0,
       phase: Math.random() * Math.PI * 2,
       pulsePhase: Math.random() * Math.PI * 2,
-      driftRadius: 0.008 + Math.random() * 0.015,
-      driftSpeed: 0.7 + Math.random() * 0.7,
+      driftRadius: 0.012 + Math.random() * 0.02,
+      driftSpeed: 1.4 + Math.random() * 1.6, // Fast & lively animation
     }));
   }
 
@@ -56,7 +54,7 @@ export class AnimatedGraph {
       .map(([a, b]) => ({
         from: a,
         to: b,
-        baseOpacity: 0.22 + Math.random() * 0.25,
+        baseOpacity: 0.25 + Math.random() * 0.3,
         phase: Math.random() * Math.PI * 2,
       }));
   }
@@ -64,14 +62,14 @@ export class AnimatedGraph {
   _initPulses() {
     // Generate streaming photon / data pulses across connections
     this.pulses = [];
-    for (let i = 0; i < 18; i++) {
+    for (let i = 0; i < 22; i++) {
       const conn = this.connections[Math.floor(Math.random() * this.connections.length)];
       this.pulses.push({
         from: conn.from,
         to: conn.to,
         progress: Math.random(),
-        speed: 0.25 + Math.random() * 0.45,
-        size: 1.8 + Math.random() * 1.5,
+        speed: 0.6 + Math.random() * 0.9, // Fast pulse speed
+        size: 2.0 + Math.random() * 1.5,
       });
     }
   }
@@ -92,7 +90,7 @@ export class AnimatedGraph {
   }
 
   setSceneProgress(progress) {
-    this.scrollProgress = Math.max(0, Math.min(6, progress));
+    this.scrollProgress = Math.max(0, Math.min(5, progress));
   }
 
   start() {
@@ -118,34 +116,27 @@ export class AnimatedGraph {
     const sp = this.scrollProgress;
 
     // Determine current scene index and fractional progress
-    const sceneIndex = Math.min(5, Math.floor(sp));
-    const nextSceneIndex = Math.min(6, sceneIndex + 1);
+    const sceneIndex = Math.min(4, Math.floor(sp));
+    const nextSceneIndex = Math.min(5, sceneIndex + 1);
     const frac = sp - sceneIndex; // 0.0 to 1.0
 
-    // ============================================================
-    // COLLAPSE & BOOM INTERPOLATION MATH:
-    // When frac < 0.46: Collapses inward to focal point (scale 1.0 -> 0.18)
-    // When frac >= 0.46: Explodes outward ("Boom!") to new scene (scale 0.18 -> 1.06 -> 1.0)
-    // ============================================================
+    // Fast snappy collapse & boom interpolation
     let scale = 1.0;
     let collapseFactor = 0;
 
-    // Dynamic focal collapse center
-    const collapseX = sceneIndex === 1 ? 0.72 : 0.58;
+    const collapseX = 0.68;
     const collapseY = 0.48;
 
-    if (frac < 0.46) {
-      // Collapse Phase: 0 -> 1
-      const c = frac / 0.46;
+    if (frac < 0.45) {
+      const c = frac / 0.45;
       const easeC = c * c * c;
-      scale = 1.0 - easeC * 0.82; // shrinks down to 0.18
+      scale = 1.0 - easeC * 0.78;
       collapseFactor = easeC;
     } else {
-      // Boom Phase: 0 -> 1
-      const b = (frac - 0.46) / 0.54;
+      const b = (frac - 0.45) / 0.55;
       const easeB = Math.sin(b * Math.PI * 0.5);
       const overshoot = b === 1 ? 1 : Math.pow(2, -10 * b) * Math.sin((b - 0.075) * (2 * Math.PI) / 0.3) + 1;
-      scale = 0.18 + (Math.max(0, overshoot) * 0.82);
+      scale = 0.22 + (Math.max(0, overshoot) * 0.78);
       collapseFactor = 1.0 - easeB;
     }
 
@@ -153,9 +144,8 @@ export class AnimatedGraph {
       const pFrom = node.pos[sceneIndex] || node.pos[0];
       const pTo = node.pos[nextSceneIndex] || node.pos[0];
 
-      // Interpolate base coordinate with collapse bias
       let targetX, targetY;
-      if (frac < 0.46) {
+      if (frac < 0.45) {
         targetX = pFrom[0] + (collapseX - pFrom[0]) * collapseFactor;
         targetY = pFrom[1] + (collapseY - pFrom[1]) * collapseFactor;
       } else {
@@ -163,18 +153,18 @@ export class AnimatedGraph {
         targetY = pTo[1] + (collapseY - pTo[1]) * collapseFactor;
       }
 
-      // Continuous subtle organic drift (reduced in NN mode for crisp alignment)
-      const inNN = sp >= 1.4 && sp <= 2.6;
-      const driftMult = inNN ? 0.35 : 1.0;
+      // Fast, lively organic drift
+      const inNN = sp >= 0.6 && sp <= 1.5;
+      const driftMult = inNN ? 0.4 : 1.0;
 
       const driftX = Math.sin(t * node.driftSpeed + node.phase) * (node.driftRadius * scale * driftMult);
-      const driftY = Math.cos(t * (node.driftSpeed * 1.15) + node.phase + 1.2) * (node.driftRadius * scale * driftMult);
+      const driftY = Math.cos(t * (node.driftSpeed * 1.2) + node.phase + 1.2) * (node.driftRadius * scale * driftMult);
 
       node.curX = targetX + driftX;
       node.curY = targetY + driftY;
       node.curScale = scale;
 
-      node.pulse = 0.5 + 0.5 * Math.sin(t * 1.8 + node.pulsePhase);
+      node.pulse = 0.5 + 0.5 * Math.sin(t * 2.5 + node.pulsePhase);
     }
 
     // Update data transmission pulses
@@ -194,39 +184,39 @@ export class AnimatedGraph {
       case 'blue':
         return {
           bg: '#1d3da8',
-          line: 'rgba(255,255,255,0.22)',
-          lineHighlight: 'rgba(255,255,255,0.7)',
-          pulseColor: 'rgba(255,255,255,0.95)',
+          line: 'rgba(255,255,255,0.24)',
+          lineHighlight: 'rgba(255,255,255,0.75)',
+          pulseColor: '#ffffff',
           node: 'rgba(255,255,255,0.5)',
           nodeAccent: '#78a6ff',
           badgeBg: '#1d3da8',
           badgeStroke: '#ffffff',
           badgeIcon: '#ffffff',
-          label: 'rgba(255,255,255,0.9)',
-          sublabel: 'rgba(255,255,255,0.5)',
+          label: '#ffffff',
+          sublabel: 'rgba(255,255,255,0.6)',
           watermark: 'rgba(255,255,255,0.06)',
         };
       case 'dark':
         return {
           bg: '#0c0e14',
-          line: 'rgba(255,255,255,0.14)',
-          lineHighlight: 'rgba(255,255,255,0.45)',
-          pulseColor: 'rgba(100,160,255,0.9)',
+          line: 'rgba(255,255,255,0.16)',
+          lineHighlight: 'rgba(255,255,255,0.5)',
+          pulseColor: 'rgba(120,180,255,0.95)',
           node: 'rgba(255,255,255,0.3)',
           nodeAccent: '#4a7cdb',
           badgeBg: '#0c0e14',
           badgeStroke: '#e8e6e2',
           badgeIcon: '#e8e6e2',
-          label: 'rgba(255,255,255,0.8)',
-          sublabel: 'rgba(255,255,255,0.4)',
+          label: 'rgba(255,255,255,0.85)',
+          sublabel: 'rgba(255,255,255,0.45)',
           watermark: 'rgba(255,255,255,0.04)',
         };
       default: // light
         return {
           bg: '#f5f2ed',
           line: 'rgba(0,0,0,0.12)',
-          lineHighlight: 'rgba(0,0,0,0.32)',
-          pulseColor: 'rgba(60,100,200,0.9)',
+          lineHighlight: 'rgba(0,0,0,0.35)',
+          pulseColor: '#3c64c8',
           node: 'rgba(0,0,0,0.35)',
           nodeAccent: '#3c64c8',
           badgeBg: '#f5f2ed',
@@ -268,7 +258,7 @@ export class AnimatedGraph {
       ctx.moveTo(ax, ay);
       ctx.lineTo(bx, by);
       ctx.strokeStyle = colors.line;
-      ctx.lineWidth = Math.max(0.4, 0.75 * avgScale);
+      ctx.lineWidth = Math.max(0.4, 0.8 * avgScale);
       ctx.globalAlpha = conn.baseOpacity * avgScale;
       ctx.stroke();
       ctx.globalAlpha = 1;
@@ -277,30 +267,28 @@ export class AnimatedGraph {
     // ============================================================
     // Draw Animated Flowing Pulses (Data transmission packets)
     // ============================================================
-    if (sp >= 0.4) {
-      for (const pulse of this.pulses) {
-        const a = this._nodeById(pulse.from);
-        const b = this._nodeById(pulse.to);
-        if (!a || !b) continue;
+    for (const pulse of this.pulses) {
+      const a = this._nodeById(pulse.from);
+      const b = this._nodeById(pulse.to);
+      if (!a || !b) continue;
 
-        const p = pulse.progress;
-        const px = (a.curX + (b.curX - a.curX) * p) * w;
-        const py = (a.curY + (b.curY - a.curY) * p) * h;
-        const pulseAlpha = Math.sin(p * Math.PI) * Math.min(a.curScale, b.curScale);
+      const p = pulse.progress;
+      const px = (a.curX + (b.curX - a.curX) * p) * w;
+      const py = (a.curY + (b.curY - a.curY) * p) * h;
+      const pulseAlpha = Math.sin(p * Math.PI) * Math.min(a.curScale, b.curScale);
 
-        if (pulseAlpha > 0.05) {
-          ctx.beginPath();
-          ctx.arc(px, py, pulse.size * a.curScale, 0, Math.PI * 2);
-          ctx.fillStyle = colors.pulseColor;
-          ctx.globalAlpha = pulseAlpha * 0.85;
-          ctx.fill();
-          ctx.globalAlpha = 1;
-        }
+      if (pulseAlpha > 0.05) {
+        ctx.beginPath();
+        ctx.arc(px, py, pulse.size * a.curScale, 0, Math.PI * 2);
+        ctx.fillStyle = colors.pulseColor;
+        ctx.globalAlpha = pulseAlpha;
+        ctx.fill();
+        ctx.globalAlpha = 1;
       }
     }
 
     // ============================================================
-    // Draw Nodes (Badges in Scene 1 & 2, Geometrics in others)
+    // Draw Nodes (Badges in Scene 1 NN Mode, Geometrics in Others)
     // ============================================================
     for (const node of this.nodes) {
       const x = node.curX * w;
@@ -308,12 +296,9 @@ export class AnimatedGraph {
       const scale = node.curScale;
       if (scale <= 0.05) continue;
 
-      const isBadgeScene = sp >= 0.45 && sp <= 2.6;
+      const isNNMode = sp >= 0.5 && sp <= 1.6;
 
-      if (isBadgeScene && node.type === 'personBadge') {
-        // ----------------------------------------------------
-        // PERSON AVATAR BADGE
-        // ----------------------------------------------------
+      if (isNNMode && node.type === 'personBadge') {
         const radius = node.size * scale;
         this._drawPersonBadge(x, y, radius, colors);
 
@@ -322,17 +307,8 @@ export class AnimatedGraph {
           ctx.fillStyle = colors.label;
           ctx.textAlign = 'center';
           ctx.fillText(node.label, x, y + radius + 13 * scale);
-
-          if (node.sublabel && sp < 1.6) {
-            ctx.font = `400 ${Math.max(6, Math.round(7.5 * scale))}px 'IBM Plex Mono', monospace`;
-            ctx.fillStyle = colors.sublabel;
-            ctx.fillText(node.sublabel, x, y + radius + 23 * scale);
-          }
         }
-      } else if (isBadgeScene && node.type === 'agentBadge') {
-        // ----------------------------------------------------
-        // AGENT SQUARE BADGE with Greek Letter
-        // ----------------------------------------------------
+      } else if (isNNMode && node.type === 'agentBadge') {
         const size = node.size * scale;
         this._drawAgentBadge(x, y, size, node.symbol, colors);
 
@@ -342,10 +318,7 @@ export class AnimatedGraph {
           ctx.textAlign = 'center';
           ctx.fillText(node.label, x, y + size + 13 * scale);
         }
-      } else if (isBadgeScene && node.type === 'skillBadge') {
-        // ----------------------------------------------------
-        // SKILL DIAMOND BADGE with Symbol
-        // ----------------------------------------------------
+      } else if (isNNMode && node.type === 'skillBadge') {
         const size = node.size * scale;
         this._drawSkillBadge(x, y, size, node.symbol, colors);
 
@@ -356,9 +329,7 @@ export class AnimatedGraph {
           ctx.fillText(node.label, x, y + size + 13 * scale);
         }
       } else {
-        // ----------------------------------------------------
-        // STANDARD GEOMETRIC NODE (Scene 0, 3, 4, 5, 6)
-        // ----------------------------------------------------
+        // Standard geometric nodes (Scene 0, 2, 3, 4, 5)
         const s = (node.size || 6) * scale;
         const type = node.type || 'circle';
 
