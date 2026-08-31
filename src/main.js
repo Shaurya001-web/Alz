@@ -98,11 +98,7 @@ function buildHTML() {
         </div>
       </section>
 
-      <!-- ======================== TRANSITION: WHITE → BLUE ======================== -->
-      <div class="panel-wrap" id="transition-1" style="height:140vh; position:relative;">
-        <div class="panel theme-light" id="panel-light-1" style="position:absolute; inset:0; z-index:1;"></div>
-        <div class="panel theme-blue" id="panel-blue-enter" style="position:absolute; top:0; right:0; bottom:0; width:0; z-index:2;"></div>
-      </div>
+      <!-- Section 01 to 02 scrolls smoothly with direct graph morphing -->
 
       <!-- ======================== 02 VOICE (FABRIC) ======================== -->
       <section class="alvi-section theme-light" id="section-voice" data-theme="light">
@@ -516,7 +512,6 @@ function initScrollAnimations(graph) {
   });
 
   // --- Panel Transitions ---
-  createPanelTransition('#transition-1', '#panel-blue-enter');
   createPanelTransition('#transition-2', '#panel-dark-enter');
   createPanelTransition('#transition-3', '#panel-light-enter');
   createPanelTransition('#transition-4', '#panel-blue-enter-2');
