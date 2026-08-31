@@ -42,10 +42,11 @@ export class AnimatedGraph {
       // Each node gets its own slow velocity for organic drift
       vx: (Math.random() - 0.5) * 0.0003,
       vy: (Math.random() - 0.5) * 0.0003,
+      // Each node gets active speed and range for lively organic drift
       phase: Math.random() * Math.PI * 2,
       pulsePhase: Math.random() * Math.PI * 2,
-      driftRadius: 0.008 + Math.random() * 0.02, // how far it drifts
-      driftSpeed: 0.15 + Math.random() * 0.25,   // how fast it drifts
+      driftRadius: 0.018 + Math.random() * 0.032, // larger drift distance
+      driftSpeed: 0.7 + Math.random() * 0.9,      // ~4x-5x faster motion
     }));
   }
 
@@ -100,13 +101,13 @@ export class AnimatedGraph {
     const sp = this.scrollProgress;
 
     for (const node of this.nodes) {
-      // Continuous organic drift — nodes visibly float around their base position
+      // Continuous organic drift — nodes actively float around their base position
       const driftX = Math.sin(t * node.driftSpeed + node.phase) * node.driftRadius;
-      const driftY = Math.cos(t * node.driftSpeed * 0.8 + node.phase + 1.5) * node.driftRadius;
+      const driftY = Math.cos(t * (node.driftSpeed * 1.15) + node.phase + 1.2) * node.driftRadius;
 
-      // Secondary micro-oscillation for natural feel
-      const microX = Math.sin(t * 0.7 + node.phase * 2.3) * 0.003;
-      const microY = Math.cos(t * 0.55 + node.phase * 1.7) * 0.003;
+      // Secondary oscillation for fluid organic movement
+      const microX = Math.sin(t * 1.6 + node.phase * 2.1) * 0.007;
+      const microY = Math.cos(t * 1.4 + node.phase * 1.7) * 0.007;
 
       // Scroll-based global shift
       const scrollShiftX = sp * 0.04 * (node.baseX - 0.5);
@@ -115,18 +116,18 @@ export class AnimatedGraph {
       node.cx = node.baseX + driftX + microX + scrollShiftX;
       node.cy = node.baseY + driftY + microY + scrollShiftY;
 
-      // Pulse for accent nodes (visible breathing)
+      // Pulse for accent nodes (smooth breathing)
       node.pulse = node.accent
-        ? 0.5 + 0.5 * Math.sin(t * 0.6 + node.pulsePhase)
+        ? 0.5 + 0.5 * Math.sin(t * 1.8 + node.pulsePhase)
         : 0;
 
-      // Occasional highlight flash
-      node.highlighted = Math.sin(t * 0.12 + node.phase * 3) > 0.88;
+      // Highlight flash
+      node.highlighted = Math.sin(t * 0.5 + node.phase * 3) > 0.82;
     }
 
     // Connection opacity breathing
     for (const conn of this.connections) {
-      conn.opacity = conn.baseOpacity + Math.sin(t * 0.18 + conn.phase) * 0.12;
+      conn.opacity = conn.baseOpacity + Math.sin(t * 0.9 + conn.phase) * 0.15;
     }
   }
 
