@@ -42,11 +42,6 @@ export const responsibilityPrinciples = [
     title: 'HUMAN OVERSIGHT',
     desc: 'Keep clinical professionals at the center of interpretation.',
   },
-  {
-    num: '04',
-    title: 'RESPONSIBLE AI',
-    desc: 'Distinguish research and experimentation from clinical diagnosis.',
-  },
 ];
 
 // ============================================================

@@ -587,9 +587,9 @@ body {
 .hero-heading {
   font-family: var(--font-primary);
   font-weight: 400;
-  font-size: clamp(48px, 7.5vw, 120px);
-  line-height: 1.02;
-  letter-spacing: -3px;
+  font-size: clamp(36px, 5.5vw, 85px);
+  line-height: 1.05;
+  letter-spacing: -2px;
   max-width: 900px;
 }
 .hero-body {

@@ -134,7 +134,7 @@ function buildHTML() {
       <section class="alvi-section theme-dark" id="section-cognition" data-theme="dark">
         <div class="section-bg-num" aria-hidden="true">03</div>
         <div class="section-label">03 THE CHECK-IN</div>
-        <h2 class="alvi-heading">Stop talking about ALVI.<br/>Become the user.</h2>
+        <h2 class="alvi-heading">Experience the journey,<br/>not just a test.</h2>
         <p class="alvi-body">ALVI builds a personal cognitive journey — not an isolated test. A simple voice check-in. Describe a scene. Tell a story. Play a game. ALVI listens to how you speak, not just what you say.</p>
 
         <!-- Cognitive Metrics repurposed for check-in signals -->
@@ -227,14 +227,14 @@ function buildHTML() {
         </div>
       </section>
 
-      <!-- ======================== TRANSITION: BLUE → DARK ======================== -->
+      <!-- ======================== TRANSITION: BLUE → LIGHT ======================== -->
       <div class="panel-wrap" id="transition-5" style="height:140vh; position:relative;">
         <div class="panel theme-blue" id="panel-blue-2" style="position:absolute; inset:0; z-index:1;"></div>
-        <div class="panel theme-dark" id="panel-dark-enter-2" style="position:absolute; top:0; right:0; bottom:0; width:0; z-index:2;"></div>
+        <div class="panel theme-light" id="panel-light-enter-2" style="position:absolute; top:0; right:0; bottom:0; width:0; z-index:2;"></div>
       </div>
 
       <!-- ======================== 06 — The Vision ======================== -->
-      <section class="alvi-section theme-dark" id="section-future" data-theme="dark">
+      <section class="alvi-section theme-light" id="section-future" data-theme="light">
         <div class="section-bg-num" aria-hidden="true">06</div>
         <div class="section-label">06 VISION</div>
         <h2 class="alvi-heading">With more data, the model grows.<br/>This isn't the finish line.</h2>
@@ -463,7 +463,7 @@ function initScrollAnimations(graph) {
   createPanelTransition('#transition-2', '#panel-dark-enter');
   createPanelTransition('#transition-3', '#panel-light-enter');
   createPanelTransition('#transition-4', '#panel-blue-enter-2');
-  createPanelTransition('#transition-5', '#panel-dark-enter-2');
+  createPanelTransition('#transition-5', '#panel-light-enter-2');
 
   // --- Background number parallax ---
   document.querySelectorAll('.section-bg-num').forEach(num => {
