@@ -601,6 +601,24 @@ body {
   opacity: 0.55;
   margin-top: 48px;
 }
+.section-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  opacity: 0.45;
+  margin-bottom: 24px;
+}
+.hero-sub-body {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  opacity: 0.5;
+  margin-top: 32px;
+}
 .hero-bg-num {
   position: absolute;
   right: 8vw;

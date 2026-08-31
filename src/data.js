@@ -3,12 +3,12 @@
 // ============================================================
 
 export const sections = [
-  { id: 'hero', num: '01', label: 'SIGNALS' },
-  { id: 'ingest', num: '02', label: 'VOICE & INGEST' },
-  { id: 'cognition', num: '03', label: 'COGNITION' },
+  { id: 'hero', num: '01', label: 'THE IDEA' },
+  { id: 'ingest', num: '02', label: 'PIPELINE' },
+  { id: 'cognition', num: '03', label: 'CHECK-IN' },
   { id: 'insight', num: '04', label: 'INSIGHT' },
   { id: 'responsibility', num: '05', label: 'RESPONSIBILITY' },
-  { id: 'future', num: '06', label: 'FUTURE' },
+  { id: 'future', num: '06', label: 'VISION' },
 ];
 
 export const voiceMetrics = {

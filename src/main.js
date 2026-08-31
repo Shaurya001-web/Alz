@@ -54,38 +54,40 @@ function buildHTML() {
     <!-- Scroll Container -->
     <main class="scroll-container" id="scroll-container">
 
-      <!-- ======================== 01 SIGNALS (HERO) ======================== -->
+      <!-- ======================== 01 — MEMBER 1: The Idea ======================== -->
       <section class="hero-section" id="section-hero" data-theme="light">
         <div class="section-bg-num" aria-hidden="true">01</div>
-        <h1 class="hero-heading">The signals<br/>we usually overlook.</h1>
-        <p class="hero-body">ALVI explores how voice and cognitive signals could be organized into a clearer visual picture of cognitive health.</p>
+        <div class="section-eyebrow">TEAM ZEPHYR</div>
+        <h1 class="hero-heading">What if your voice<br/>could reveal your<br/>cognitive health?</h1>
+        <p class="hero-body">57 million people live with dementia worldwide. Nearly 10 million new cases emerge every year. By the time symptoms become obvious, valuable time for intervention is already lost.</p>
         <div class="micro-labels">
           <span class="micro-label">VOICE</span>
           <span class="micro-label">COGNITION</span>
           <span class="micro-label">PATTERN</span>
           <span class="micro-label">AWARENESS</span>
         </div>
+        <p class="hero-sub-body">No expensive tests. No specialized equipment. Just speak.</p>
       </section>
 
-      <!-- ======================== 02 INGEST / NEURAL NETWORK (EXACT MATCH TO BLUE SCREENSHOT) ======================== -->
+      <!-- ======================== 02 — MEMBER 2: How It Works ======================== -->
       <section class="alvi-section theme-blue" id="section-ingest" data-theme="blue">
-        <div class="section-bg-num" aria-hidden="true">2</div>
+        <div class="section-bg-num" aria-hidden="true">02</div>
 
-        <!-- Mini Section Tabs (matches Langware reference) -->
+        <!-- Mini Section Tabs -->
         <div class="section-sub-tabs">
           <span class="sub-tab-line">—</span>
-          <span class="sub-tab">FABRIC</span>
+          <span class="sub-tab">RAW AUDIO</span>
           <span class="sub-tab-line">—</span>
-          <span class="sub-tab active">INGEST</span>
+          <span class="sub-tab active">PIPELINE</span>
           <span class="sub-tab-line">—</span>
-          <span class="sub-tab">GOVERN</span>
+          <span class="sub-tab">CLASSIFY</span>
           <span class="sub-tab-line">—</span>
-          <span class="sub-tab">LEARN</span>
+          <span class="sub-tab">RESULT</span>
         </div>
 
         <div class="section-sub-num">2.2</div>
-        <h2 class="alvi-heading">Gather all your sources in one place.</h2>
-        <p class="alvi-body">ALVI gathers your acoustic signals, temporal cadences, pauses and pitch contours through one governed gate. Security, privacy and access are checked on the way in.</p>
+        <h2 class="alvi-heading">From hearing a voice to finding patterns in it.</h2>
+        <p class="alvi-body">Raw audio becomes a spectrogram, transforms into meaningful features, and passes through our ML classifier. HTML, CSS, JavaScript and React power the interface. Python, TensorFlow and scikit-learn drive the AI.</p>
 
         <!-- Bottom Sources Arch Bar with Icons & Curved Projection -->
         <div class="sources-arch-container">
@@ -98,25 +100,25 @@ function buildHTML() {
               <div class="source-icon-badge">
                 <svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
               </div>
-              <div class="source-label">ACOUSTICS</div>
+              <div class="source-label">RAW AUDIO</div>
             </div>
             <div class="source-item">
               <div class="source-icon-badge">
                 <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke="currentColor" stroke-width="1.5"/><polyline points="14 2 14 8 20 8" stroke="currentColor" stroke-width="1.5"/></svg>
               </div>
-              <div class="source-label">PROSODY</div>
+              <div class="source-label">SPECTROGRAM</div>
             </div>
             <div class="source-item">
               <div class="source-icon-badge">
                 <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.5"/><line x1="7" y1="8" x2="17" y2="8" stroke="currentColor" stroke-width="1.5"/><line x1="7" y1="12" x2="17" y2="12" stroke="currentColor" stroke-width="1.5"/></svg>
               </div>
-              <div class="source-label">CADENCE</div>
+              <div class="source-label">FEATURES</div>
             </div>
             <div class="source-item">
               <div class="source-icon-badge">
                 <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.5"/><circle cx="8.5" cy="8.5" r="1.5" fill="currentColor"/><polyline points="21 15 16 10 5 21" stroke="currentColor" stroke-width="1.5"/></svg>
               </div>
-              <div class="source-label">SEMANTICS</div>
+              <div class="source-label">CLASSIFIER</div>
             </div>
           </div>
         </div>
@@ -128,25 +130,33 @@ function buildHTML() {
         <div class="panel theme-dark" id="panel-dark-enter" style="position:absolute; top:0; right:0; bottom:0; width:0; z-index:2;"></div>
       </div>
 
-      <!-- ======================== 03 COGNITION ======================== -->
+      <!-- ======================== 03 — MEMBER 3: The User Journey ======================== -->
       <section class="alvi-section theme-dark" id="section-cognition" data-theme="dark">
         <div class="section-bg-num" aria-hidden="true">03</div>
-        <div class="section-label">03 COGNITION</div>
-        <h2 class="alvi-heading">Cognition is not a single number.</h2>
-        <p class="alvi-body">Memory, language, attention and recall do not exist independently. They interact continuously. ALVI presents these signals as connected parts of a larger cognitive picture.</p>
+        <div class="section-label">03 THE CHECK-IN</div>
+        <h2 class="alvi-heading">Stop talking about ALVI.<br/>Become the user.</h2>
+        <p class="alvi-body">ALVI builds a personal cognitive journey — not an isolated test. A simple voice check-in. Describe a scene. Tell a story. Play a game. ALVI listens to how you speak, not just what you say.</p>
 
-        <!-- Cognitive Metrics -->
+        <!-- Cognitive Metrics repurposed for check-in signals -->
         <div class="metrics-row">
-          ${Object.values(cognitiveMetrics)
-            .map(
-              m => `<div class="metric-item">
-              <div class="metric-label">${m.label}</div>
-              <div class="metric-value">${m.value}</div>
-            </div>`
-            )
-            .join('')}
+          <div class="metric-item">
+            <div class="metric-label">VOICE CHECK-IN</div>
+            <div class="metric-value">FLUENCY</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-label">STORY RECALL</div>
+            <div class="metric-value">RETENTION</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-label">MINDPLAY</div>
+            <div class="metric-value">RESPONSE</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-label">SIGNAL TYPE</div>
+            <div class="metric-value">MULTI</div>
+          </div>
         </div>
-        <div class="metric-data-label" style="margin-top:20px;">DEMONSTRATION DATA</div>
+        <div class="metric-data-label" style="margin-top:20px;">MULTIPLE SIGNALS — NOT A SINGLE RESPONSE</div>
       </section>
 
       <!-- ======================== TRANSITION: DARK → WHITE ======================== -->
@@ -155,36 +165,36 @@ function buildHTML() {
         <div class="panel theme-light" id="panel-light-enter" style="position:absolute; top:0; right:0; bottom:0; width:0; z-index:2;"></div>
       </div>
 
-      <!-- ======================== 04 INSIGHT ======================== -->
+      <!-- ======================== 04 — MEMBER 4: Results & Insights ======================== -->
       <section class="alvi-section theme-light" id="section-insight" data-theme="light">
         <div class="section-bg-num" aria-hidden="true">04</div>
         <div class="section-label">04 INSIGHT</div>
         <h2 class="alvi-heading">Many signals. One clearer picture.</h2>
-        <p class="alvi-body">ALVI conceptually brings voice and cognitive signals together so complex patterns can be presented in a way that is easier to understand and investigate.</p>
+        <p class="alvi-body">Voice assessment, Story Recall, and MindPlay results side by side. No random numbers — context that makes sense.</p>
 
-        <!-- ALVI Cognitive Result -->
+        <!-- ALVI Result Dashboard -->
         <div class="result-scene" style="border-top-color: rgba(0,0,0,0.06);">
-          <div class="result-heading" style="color: var(--warm-white-text);">ALVI COGNITIVE INSIGHT</div>
+          <div class="result-heading" style="color: var(--warm-white-text);">COGNITIVE SNAPSHOT</div>
           <div class="result-sub">DEMONSTRATION RESULT</div>
           <div class="result-grid">
             <div>
-              <div class="result-metric-label">VOICE SIMILARITY</div>
-              <div class="result-metric-value" style="color: var(--warm-white-text);">−3.28%</div>
+              <div class="result-metric-label">VOICE ASSESSMENT</div>
+              <div class="result-metric-value" style="color: var(--warm-white-text);">STABLE</div>
             </div>
             <div>
-              <div class="result-metric-label">PATTERN CONFIDENCE</div>
+              <div class="result-metric-label">STORY RECALL</div>
               <div class="result-metric-value" style="color: var(--warm-white-text);">78%</div>
             </div>
             <div>
-              <div class="result-metric-label">MEMORY INDICATOR</div>
-              <div class="result-metric-value" style="color: var(--warm-white-text);">01</div>
+              <div class="result-metric-label">MINDPLAY</div>
+              <div class="result-metric-value" style="color: var(--warm-white-text);">NORMAL</div>
             </div>
             <div>
-              <div class="result-metric-label">OVERALL SIGNAL</div>
-              <div class="result-metric-value" style="color: var(--warm-white-text); font-size:16px; letter-spacing:0.5px;">PATTERNS WORTH MONITORING</div>
+              <div class="result-metric-label">PATTERN TREND</div>
+              <div class="result-metric-value" style="color: var(--warm-white-text); font-size:16px; letter-spacing:0.5px;">WORTH MONITORING</div>
             </div>
           </div>
-          <p class="result-body" style="color: var(--warm-white-text);">Earlier cognitive changes can be subtle. ALVI demonstrates how multiple signal categories could be represented together to create clearer context.</p>
+          <p class="result-body" style="color: var(--warm-white-text);">The Cognitive Journey tracks results across check-ins. The Pattern Explorer compares against anonymized baselines. AI Insights translates changes into simple observations.</p>
           <div class="result-disclaimer">Demonstration data only — not a medical diagnosis.</div>
         </div>
       </section>
@@ -195,12 +205,12 @@ function buildHTML() {
         <div class="panel theme-blue" id="panel-blue-enter-2" style="position:absolute; top:0; right:0; bottom:0; width:0; z-index:2;"></div>
       </div>
 
-      <!-- ======================== 05 RESPONSIBILITY ======================== -->
+      <!-- ======================== 05 — Responsibility ======================== -->
       <section class="alvi-section theme-blue" id="section-responsibility" data-theme="blue">
         <div class="section-bg-num" aria-hidden="true">05</div>
         <div class="section-label">05 RESPONSIBILITY</div>
-        <h2 class="alvi-heading">Technology can surface patterns.<br/>It should not replace judgment.</h2>
-        <p class="alvi-body">ALVI is a conceptual interface for exploring how voice and cognitive signals might be communicated. Any real clinical application would require rigorous validation, privacy safeguards, medical oversight and regulatory review.</p>
+        <h2 class="alvi-heading">ALVI doesn't replace a diagnosis.<br/>It makes noticing change easier.</h2>
+        <p class="alvi-body">Technology can surface patterns. Understanding them still requires people. Any real clinical application would require rigorous validation, privacy safeguards, and medical oversight.</p>
 
         <div class="principles-list">
           ${responsibilityPrinciples
@@ -223,25 +233,25 @@ function buildHTML() {
         <div class="panel theme-dark" id="panel-dark-enter-2" style="position:absolute; top:0; right:0; bottom:0; width:0; z-index:2;"></div>
       </div>
 
-      <!-- ======================== 06 FUTURE ======================== -->
+      <!-- ======================== 06 — The Vision ======================== -->
       <section class="alvi-section theme-dark" id="section-future" data-theme="dark">
         <div class="section-bg-num" aria-hidden="true">06</div>
-        <div class="section-label">06 FUTURE</div>
-        <h2 class="alvi-heading">Turning subtle signals into earlier awareness.</h2>
-        <p class="alvi-body">ALVI explores a future where complex cognitive signals could become easier to visualize, communicate and investigate.</p>
-        <div class="future-statement">Subtle signals.<br/>Clearer context.<br/>Earlier awareness.</div>
+        <div class="section-label">06 VISION</div>
+        <h2 class="alvi-heading">With more data, the model grows.<br/>This isn't the finish line.</h2>
+        <p class="alvi-body">ALVI is built to grow. More data means a more robust model. More voices means wider accessibility. This is the first step.</p>
+        <div class="future-statement">One voice at a time.</div>
       </section>
 
       <!-- ======================== FINAL SCREEN ======================== -->
       <section class="final-screen" id="section-final">
-        <h2 class="final-heading">Subtle signals.<br/>Earlier awareness.</h2>
-        <div class="final-concept">SIMULATED PRODUCT CONCEPT</div>
-        <p class="final-thought">Technology can help us notice patterns.<br/>Understanding them still requires people.</p>
+        <h2 class="final-heading">One voice<br/>at a time.</h2>
+        <div class="final-concept">TEAM ZEPHYR — ALVI</div>
+        <p class="final-thought">Riya · Aman · Gunpreet · Shaurya</p>
       </section>
 
       <!-- Footer -->
       <footer class="alvi-footer">
-        <div class="footer-left">ALVI — CONCEPT 2025</div>
+        <div class="footer-left">ALVI — TEAM ZEPHYR 2025</div>
         <div class="footer-right">SIMULATED RESEARCH CONCEPT</div>
       </footer>
     </main>
@@ -331,12 +341,18 @@ function initSectionNav(graph) {
       let activeId = 'hero';
       let activeTheme = 'light';
 
-      chapterSections.forEach((el, i) => {
-        if (el && el.offsetTop <= focalScrollY) {
-          activeId = sections[i] ? sections[i].id : 'hero';
-          activeTheme = el.getAttribute('data-theme') || 'light';
-        }
-      });
+      // Force light theme when at/near top of page (fixes scroll-back bug)
+      if (scrollY < 100) {
+        activeId = 'hero';
+        activeTheme = 'light';
+      } else {
+        chapterSections.forEach((el, i) => {
+          if (el && el.offsetTop <= focalScrollY) {
+            activeId = sections[i] ? sections[i].id : 'hero';
+            activeTheme = el.getAttribute('data-theme') || 'light';
+          }
+        });
+      }
 
       // Update nav
       navLinks.forEach(link => {
