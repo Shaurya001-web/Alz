@@ -98,13 +98,11 @@ function buildHTML() {
         </div>
       </section>
 
-      <!-- Section 01 to 02 scrolls smoothly with direct graph morphing -->
-
-      <!-- ======================== 02 VOICE (FABRIC) ======================== -->
+      <!-- ======================== 02.1 VOICE (FABRIC) ======================== -->
       <section class="alvi-section theme-light" id="section-voice" data-theme="light">
         <div class="section-bg-num" aria-hidden="true">02</div>
 
-        <!-- Mini Section Tabs (matches reference photo) -->
+        <!-- Mini Section Tabs (FABRIC active) -->
         <div class="section-sub-tabs">
           <span class="sub-tab-lead">VOICE SIGNALS</span>
           <span class="sub-tab-line">—</span>
@@ -118,7 +116,7 @@ function buildHTML() {
         <h2 class="alvi-heading">The human-voice fabric.</h2>
         <p class="alvi-body">Acoustic markers are fast. Cognitive patterns are deep. ALVI fuses them on one live, structured fabric, so researchers work from the same clarity.</p>
 
-        <!-- Fabric Legend (matches reference photo) -->
+        <!-- Fabric Legend -->
         <div class="fabric-legend">
           <div class="legend-item"><span class="legend-dot circle-black"></span> YOUR SIGNALS</div>
           <div class="legend-item"><span class="legend-dot square-blue"></span> AGENT MARKER</div>
@@ -127,9 +125,64 @@ function buildHTML() {
         </div>
       </section>
 
+      <!-- ======================== 02.2 INGEST (NEURAL MODEL) ======================== -->
+      <section class="alvi-section theme-blue" id="section-ingest" data-theme="blue">
+        <div class="section-bg-num" aria-hidden="true" style="right:8vw; left:auto;">2</div>
+
+        <!-- Mini Section Tabs (INGEST active) -->
+        <div class="section-sub-tabs">
+          <span class="sub-tab-line">—</span>
+          <span class="sub-tab">FABRIC</span>
+          <span class="sub-tab-line">—</span>
+          <span class="sub-tab active">INGEST</span>
+          <span class="sub-tab-line">—</span>
+          <span class="sub-tab">GOVERN</span>
+          <span class="sub-tab-line">—</span>
+          <span class="sub-tab">LEARN</span>
+        </div>
+
+        <div class="section-sub-num">2.2</div>
+        <h2 class="alvi-heading">Gather all your sources in one place.</h2>
+        <p class="alvi-body">ALVI gathers your acoustic signals, temporal cadences, pauses and pitch contours through one governed gate. Signal fidelity, privacy and baseline access are verified on the way in.</p>
+
+        <!-- Bottom Sources Arch Bar with Vector Icons & Dotted Curve -->
+        <div class="sources-arch-container">
+          <svg class="sources-arch-svg" viewBox="0 0 520 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 40 40 Q 260 -8 480 40" stroke="rgba(255,255,255,0.25)" stroke-width="1" stroke-dasharray="3 3"/>
+            <line x1="260" y1="12" x2="260" y2="4" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+          </svg>
+          <div class="sources-arch-bar">
+            <div class="source-item">
+              <div class="source-icon-badge">
+                <svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <div class="source-label">ACOUSTICS</div>
+            </div>
+            <div class="source-item">
+              <div class="source-icon-badge">
+                <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke="currentColor" stroke-width="1.5"/><polyline points="14 2 14 8 20 8" stroke="currentColor" stroke-width="1.5"/></svg>
+              </div>
+              <div class="source-label">PROSODY</div>
+            </div>
+            <div class="source-item">
+              <div class="source-icon-badge">
+                <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.5"/><line x1="7" y1="8" x2="17" y2="8" stroke="currentColor" stroke-width="1.5"/><line x1="7" y1="12" x2="17" y2="12" stroke="currentColor" stroke-width="1.5"/></svg>
+              </div>
+              <div class="source-label">CADENCE</div>
+            </div>
+            <div class="source-item">
+              <div class="source-icon-badge">
+                <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.5"/><circle cx="8.5" cy="8.5" r="1.5" fill="currentColor"/><polyline points="21 15 16 10 5 21" stroke="currentColor" stroke-width="1.5"/></svg>
+              </div>
+              <div class="source-label">SEMANTICS</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- ======================== TRANSITION: BLUE → DARK ======================== -->
       <div class="panel-wrap" id="transition-2" style="height:140vh; position:relative;">
-        <div class="panel theme-light" id="panel-light-2" style="position:absolute; inset:0; z-index:1;"></div>
+        <div class="panel theme-blue" id="panel-blue-1" style="position:absolute; inset:0; z-index:1;"></div>
         <div class="panel theme-dark" id="panel-dark-enter" style="position:absolute; top:0; right:0; bottom:0; width:0; z-index:2;"></div>
       </div>
 
@@ -344,10 +397,11 @@ function initSectionNav(graph) {
     });
   });
 
-  // Content chapter checkpoints for smooth scene morphing
+  // Content chapter checkpoints for smooth scene morphing (0.0 to 6.0)
   const chapterSections = [
     document.getElementById('section-hero'),
     document.getElementById('section-voice'),
+    document.getElementById('section-ingest'),
     document.getElementById('section-cognition'),
     document.getElementById('section-insight'),
     document.getElementById('section-responsibility'),
@@ -363,7 +417,7 @@ function initSectionNav(graph) {
       const vh = window.innerHeight;
       const focalScrollY = scrollY + vh * 0.4;
 
-      // Calculate continuous scene index float (0.0 to 5.0)
+      // Calculate continuous scene index float (0.0 to 6.0)
       let continuousScene = 0;
       for (let i = 0; i < chapterSections.length - 1; i++) {
         const cur = chapterSections[i];
@@ -381,7 +435,7 @@ function initSectionNav(graph) {
         }
       }
 
-      // Update graph scene progress (drives collapse and boom!)
+      // Update graph scene progress (drives collapse, boom, and NN column formation)
       graph.setSceneProgress(continuousScene);
 
       // Determine active section for nav and colors
@@ -391,6 +445,7 @@ function initSectionNav(graph) {
       const navSections = [
         document.getElementById('section-signals'),
         document.getElementById('section-voice'),
+        document.getElementById('section-ingest'),
         document.getElementById('section-cognition'),
         document.getElementById('section-insight'),
         document.getElementById('section-responsibility'),
@@ -404,7 +459,7 @@ function initSectionNav(graph) {
         }
       });
 
-      // Update nav
+      // Update nav active classes
       navLinks.forEach(link => {
         const sid = link.getAttribute('data-section');
         link.classList.toggle('active', sid === activeId);
@@ -461,7 +516,7 @@ function initScrollAnimations(graph) {
   });
 
   // --- Section entry animations ---
-  const sectionIds = ['signals', 'voice', 'cognition', 'insight', 'responsibility', 'future'];
+  const sectionIds = ['signals', 'voice', 'ingest', 'cognition', 'insight', 'responsibility', 'future'];
 
   sectionIds.forEach(id => {
     const section = document.getElementById('section-' + id);
@@ -473,6 +528,7 @@ function initScrollAnimations(graph) {
     const subTabs = section.querySelector('.section-sub-tabs');
     const subNum = section.querySelector('.section-sub-num');
     const legend = section.querySelector('.fabric-legend');
+    const archContainer = section.querySelector('.sources-arch-container');
     const bgNum = section.querySelector('.section-bg-num');
     const micros = section.querySelector('.micro-labels');
 
@@ -505,6 +561,9 @@ function initScrollAnimations(graph) {
     }
     if (legend) {
       tl.fromTo(legend, { opacity: 0, y: 20 }, { opacity: 0.55, y: 0, duration: 0.6, ease: 'power2.out' }, 0.4);
+    }
+    if (archContainer) {
+      tl.fromTo(archContainer, { opacity: 0, y: 25 }, { opacity: 1, y: 0, duration: 0.7, ease: 'power2.out' }, 0.4);
     }
     if (micros) {
       tl.fromTo(micros, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' }, 0.45);
